@@ -1,4 +1,4 @@
-#Test sync from pc to pi
+#Test sync from tablet to github
 
 #!/usr/bin/python2
 #coding=utf-8
