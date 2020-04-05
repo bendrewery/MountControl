@@ -1,5 +1,3 @@
-#Test sync 2 from tablet to github
-
 #!/usr/bin/python2
 #coding=utf-8
 import os
@@ -51,35 +49,35 @@ def init():
  
 # All pins are low level for reset and stop operation
 def reset():
-  GPIO.output(IN1, GPIO.LOW)
-  GPIO.output(IN2, GPIO.LOW)
-  GPIO.output(IN3, GPIO.LOW)
-  GPIO.output(IN4, GPIO.LOW)
-  GPIO.output(ENA, GPIO.LOW)
-  GPIO.output(ENB, GPIO.LOW)
+    GPIO.output(IN1, GPIO.LOW)
+    GPIO.output(IN2, GPIO.LOW)
+    GPIO.output(IN3, GPIO.LOW)
+    GPIO.output(IN4, GPIO.LOW)
+    GPIO.output(ENA, GPIO.LOW)
+    GPIO.output(ENB, GPIO.LOW)
   
 def alt_up(): 
-  GPIO.output(IN2, GPIO.LOW)
-  GPIO.output(IN1, GPIO.HIGH)
-  GPIO.output(ENA, GPIO.HIGH)
+    GPIO.output(IN2, GPIO.LOW)
+    GPIO.output(IN1, GPIO.HIGH)
+    GPIO.output(ENA, GPIO.HIGH)
 
 def alt_down():
-  GPIO.output(IN1, GPIO.LOW)
-  GPIO.output(IN2, GPIO.HIGH)
-  GPIO.output(ENA, GPIO.HIGH)
+    GPIO.output(IN1, GPIO.LOW)
+    GPIO.output(IN2, GPIO.HIGH)
+    GPIO.output(ENA, GPIO.HIGH)
    
 def az_left(): 
-  GPIO.output(IN4, GPIO.LOW)
-  GPIO.output(IN3, GPIO.HIGH)
-  GPIO.output(ENB, GPIO.HIGH)
+    GPIO.output(IN4, GPIO.LOW)
+    GPIO.output(IN3, GPIO.HIGH)
+    GPIO.output(ENB, GPIO.HIGH)
 
 def az_right():
-  GPIO.output(IN3, GPIO.LOW)
-  GPIO.output(IN4, GPIO.HIGH)
-  GPIO.output(ENB, GPIO.HIGH)
+    GPIO.output(IN3, GPIO.LOW)
+    GPIO.output(IN4, GPIO.HIGH)
+    GPIO.output(ENB, GPIO.HIGH)
   
 def stop():
-  reset()
+    reset()
 
 init()
 reset()
@@ -103,10 +101,10 @@ try:
             if event.type == pygame.KEYUP:
                 print('stop')
 except KeyboardInterrupt:
-  print("except")
+    print("except")
 finally:
-  x = False
-  stop()
-  GPIO.cleanup()
-  exit()
+    x = False
+    stop()
+    GPIO.cleanup()
+    exit()
 
