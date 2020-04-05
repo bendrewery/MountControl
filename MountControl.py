@@ -1,5 +1,6 @@
-#!/usr/bin/python2
-#coding=utf-8
+# Mount Control script to control the ALT/AZ action of a custom EW head wedge.
+# Python script is controlling a XY-160D Board, a L298N Dual H Bridge motor driver.
+# Written by Ben Drewery
 import os
 import sys
 import RPi.GPIO as GPIO
