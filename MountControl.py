@@ -1,6 +1,7 @@
 # Mount Control script to control the ALT/AZ action of a custom EW head wedge.
 # Python script is controlling a XY-160D Board, a L298N Dual H Bridge motor driver.
 # Written by Ben Drewery
+
 import os
 import sys
 import RPi.GPIO as GPIO
@@ -17,9 +18,9 @@ IN4 = 11
 ENB = 15
 
 # Defaults
-pwm_frequency = 1000
-alt_duty_cycle = 100 # 0-100%
-az_duty_cycle = 100 # 0-100%
+#pwm_frequency = 1000
+#alt_duty_cycle = 100 # 0-100%
+#az_duty_cycle = 100 # 0-100%
 
 # Colours
 black = [255, 255, 255]
@@ -41,7 +42,7 @@ def init():
     pygame.display.set_caption('Mount Controller')
     screen.fill(black)
     # to spam the pygame.KEYDOWN event every 100ms while key being pressed
-    pygame.key.set_repeat(100, 100)
+    # pygame.key.set_repeat(100, 100)
   
     #alt_pwm = GPIO.PWM(ENA, pwm_frequency)
     #az_pwm = GPIO.PWM(ENB, pwm_frequency)
