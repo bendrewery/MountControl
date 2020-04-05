@@ -78,8 +78,21 @@ def az_right():
     GPIO.output(IN4, GPIO.HIGH)
     GPIO.output(ENB, GPIO.HIGH)
   
-def stop():
-    reset()
+def stop_alt_up():
+    GPIO.output(IN1, GPIO.LOW)
+    GPIO.output(ENA, GPIO.LOW)
+
+def stop_alt_dowm():
+    GPIO.output(IN2, GPIO.LOW)
+    GPIO.output(ENA, GPIO.LOW)
+
+def stop_az_left():
+    GPIO.output(IN3, GPIO.LOW)
+    GPIO.output(ENB, GPIO.LOW)
+
+def stop_az_right():
+    GPIO.output(IN4, GPIO.LOW)
+    GPIO.output(ENB, GPIO.LOW)
 
 init()
 reset()
@@ -90,7 +103,7 @@ try:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     print("except")
-                    stop()
+                    reset()
                     GPIO.cleanup()
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('alt UP')
@@ -101,12 +114,19 @@ try:
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('az RIGHT')
             if event.type == pygame.KEYUP:
-                print('stop')
+                if event.key == pygame.K_w or event.key == pygame.K_UP:
+                    print('stop alt UP')
+                if event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                    print('stop alt DOWN')
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    print('stop az LEFT')
+                if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    print('stop az RIGHT')
 except KeyboardInterrupt:
     print("except")
 finally:
     x = False
-    stop()
+    reset()
     GPIO.cleanup()
     exit()
 
