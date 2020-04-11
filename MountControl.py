@@ -151,8 +151,8 @@ try:
                     print('stop az LEFT')
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('stop az RIGHT')
-      # update display
-      pygame.display.update()
+    # update display
+    pygame.display.update()
 except KeyboardInterrupt:
     print("except")
 finally:
