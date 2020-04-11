@@ -31,7 +31,7 @@ bright_red = [255, 0, 0]
 
 #init pygame
 pygame.init()
-screen = pygame.display.set_mode((640, 480))
+screen = pygame.display.set_mode((400, 400))
 pygame.display.set_caption('Mount Controller')
 screen.fill(black)
 
@@ -136,7 +136,7 @@ try:
     while x:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE or (event.key == pygame.K_CTRL and event.key == pygame.K_c):
+                if event.key == pygame.K_ESCAPE:
                     print("except")
                     reset()
                     x = False
