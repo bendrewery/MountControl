@@ -38,7 +38,14 @@ def init():
     GPIO.setup(IN3, GPIO.OUT) # AZ LEFT
     GPIO.setup(IN4, GPIO.OUT) # AZ RIGHT
     GPIO.setup(ENB, GPIO.OUT)
-  
+    GPIO.output(IN1, GPIO.LOW)
+    GPIO.output(IN2, GPIO.LOW)
+    GPIO.output(IN3, GPIO.LOW)
+    GPIO.output(IN4, GPIO.LOW)
+    GPIO.output(ENA, GPIO.LOW)
+    GPIO.output(ENB, GPIO.LOW)
+
+def init_pygame();  
     pygame.init()
     screen = pygame.display.set_mode((640, 480))
     pygame.display.set_caption('Mount Controller')
@@ -54,13 +61,8 @@ def init():
  
 # All pins are low level for reset and stop operation
 def reset():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.output(IN1, GPIO.LOW)
-    GPIO.output(IN2, GPIO.LOW)
-    GPIO.output(IN3, GPIO.LOW)
-    GPIO.output(IN4, GPIO.LOW)
-    GPIO.output(ENA, GPIO.LOW)
-    GPIO.output(ENB, GPIO.LOW)
+    GPIO.cleanup()
+    init()
     button("Up", 200, 50, 100, 100, red)
     button("Left", 90, 160, 100, 100, red)
     button("Right", 310, 160, 100, 100, red)
@@ -127,8 +129,8 @@ def button(msg, x, y, w, h, c):
     textRect.center = ((x + (w / 2)), (y + (h / 2)))
     screen.blit(textSurf, textRect)
 
-init()
 reset()
+init_pygame()
 pygame.display.update()
 x = True
 try:
@@ -138,7 +140,6 @@ try:
                 if event.key == pygame.K_ESCAPE:
                     print("except")
                     reset()
-                    GPIO.cleanup()
                     x = False
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('alt UP')
