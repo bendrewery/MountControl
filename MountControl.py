@@ -31,7 +31,7 @@ bright_red = [255, 0, 0]
 
 #init pygame
 pygame.init()
-screen = pygame.display.set_mode((400, 400))
+screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption('Mount Controller')
 screen.fill(black)
 
