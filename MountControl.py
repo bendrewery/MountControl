@@ -45,6 +45,7 @@ def init():
     button(screen, "Left", 90, 160, 100, 100, red)
     button(screen, "Right", 310, 160, 100, 100, red)
     button(screen, "Down", 200, 270, 100, 100, red)
+
     # to spam the pygame.KEYDOWN event every 100ms while key being pressed
     # pygame.key.set_repeat(100, 100)
   
@@ -92,7 +93,7 @@ def stop_alt_up():
     GPIO.output(ENA, GPIO.LOW)
     button(screen, "Up", 200, 50, 100, 100, red)
 
-def stop_alt_dowm():
+def stop_alt_down():
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(ENA, GPIO.LOW)
     button(screen, "Down", 200, 270, 100, 100, red)
@@ -126,6 +127,7 @@ def button(screen, msg, x, y, w, h, c):
 
 init()
 reset()
+pygame.display.update()
 x = True
 try:
     while x:
@@ -137,21 +139,29 @@ try:
                     GPIO.cleanup()
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('alt UP')
+                    alt_up()
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     print('alt DOWN')
+                    alt_down()
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     print('az LEFT')
+                    az_left()
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('az RIGHT')
+                    az_right()
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('stop alt UP')
+                    stop_alt_up()
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     print('stop alt DOWN')
+                    stop_alt_down()
                 if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                     print('stop az LEFT')
+                    stop_az_left()
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('stop az RIGHT')
+                    stop_az_right()
     # update display
     pygame.display.update()
 except KeyboardInterrupt:
