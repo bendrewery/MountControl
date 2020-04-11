@@ -41,10 +41,10 @@ def init():
     screen = pygame.display.set_mode((640, 480))
     pygame.display.set_caption('Mount Controller')
     screen.fill(black)
-    button("Up", 200, 50, 100, 100, red)
-    button("Left", 90, 160, 100, 100, red)
-    button("Right", 310, 160, 100, 100, red)
-    button("Down", 200, 270, 100, 100, red)
+    button(screen, "Up", 200, 50, 100, 100, red)
+    button(screen, "Left", 90, 160, 100, 100, red)
+    button(screen, "Right", 310, 160, 100, 100, red)
+    button(screen, "Down", 200, 270, 100, 100, red)
     # to spam the pygame.KEYDOWN event every 100ms while key being pressed
     # pygame.key.set_repeat(100, 100)
   
