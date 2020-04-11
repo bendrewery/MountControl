@@ -136,7 +136,7 @@ try:
     while x:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
+                if event.key == pygame.K_ESCAPE or (event.key == pygame.K_CTRL and event.key == pygame.K_c):
                     print("except")
                     reset()
                     x = False
