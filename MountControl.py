@@ -117,7 +117,7 @@ def text_objects(text, font):
 
 # button
 def button(msg, x, y, w, h, c):
-    global event, screen
+    global screen
     # mouse = pygame.mouse.get_pos()
     pygame.draw.rect(screen, c, (x, y, w, h))
 
