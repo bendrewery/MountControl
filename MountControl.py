@@ -18,16 +18,25 @@ IN4 = 13
 ENB = 15
 
 # Defaults
-screen = False;
 #pwm_frequency = 1000
 #alt_duty_cycle = 100 # 0-100%
 #az_duty_cycle = 100 # 0-100%
+
 
 # Colours
 black = [255, 255, 255]
 white = [0, 0, 0]
 red = [200, 0, 0]
 bright_red = [255, 0, 0]
+
+#init pygame
+pygame.init()
+screen = pygame.display.set_mode((640, 480))
+pygame.display.set_caption('Mount Controller')
+screen.fill(black)
+
+# to spam the pygame.KEYDOWN event every 100ms while key being pressed
+# pygame.key.set_repeat(100, 100)
 
 def init():
     global screen
@@ -45,20 +54,12 @@ def init():
     GPIO.output(ENA, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
 
-def init_pygame():  
-    pygame.init()
-    screen = pygame.display.set_mode((640, 480))
-    pygame.display.set_caption('Mount Controller')
-    screen.fill(black)
-
-    # to spam the pygame.KEYDOWN event every 100ms while key being pressed
-    # pygame.key.set_repeat(100, 100)
   
     #alt_pwm = GPIO.PWM(ENA, pwm_frequency)
     #az_pwm = GPIO.PWM(ENB, pwm_frequency)
     #alt_pwm.start(alt_duty_cycle)
     #az_pwm.start(az_duty_cycle)
-init_pygame()
+
 
 # All pins are low level for reset and stop operation
 def reset():
