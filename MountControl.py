@@ -62,43 +62,73 @@ def alt_up():
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(ENA, GPIO.HIGH)
+    button("Up", 200, 50, 100, 100, bright_red)
 
 def alt_down():
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
     GPIO.output(ENA, GPIO.HIGH)
+    button("Down", 200, 270, 100, 100, bright_red)
    
 def az_left(): 
     GPIO.output(IN4, GPIO.LOW)
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(ENB, GPIO.HIGH)
+    button("Left", 90, 160, 100, 100, bright_red)
 
 def az_right():
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
     GPIO.output(ENB, GPIO.HIGH)
+    button("Right", 310, 160, 100, 100, bright_red)
   
 def stop_alt_up():
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(ENA, GPIO.LOW)
+    button("Up", 200, 50, 100, 100, red)
 
 def stop_alt_dowm():
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(ENA, GPIO.LOW)
+    button("Down", 200, 270, 100, 100, red)
 
 def stop_az_left():
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
+    button("Left", 90, 160, 100, 100, red)
 
 def stop_az_right():
     GPIO.output(IN4, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
+    button("Right", 310, 160, 100, 100, red)
+
+# text object
+def text_objects(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+
+# button
+def button(msg, x, y, w, h, c):
+    global e
+    # mouse = pygame.mouse.get_pos()
+    pygame.draw.rect(screen, c, (x, y, w, h))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_objects(msg, smallText)
+    textRect.center = ((x + (w / 2)), (y + (h / 2)))
+    screen.blit(textSurf, textRect)
 
 init()
 reset()
 x = True
 try:
     while x:
+        button("Up", 200, 50, 100, 100, red)
+        button("Left", 90, 160, 100, 100, red)
+        button("Right", 310, 160, 100, 100, red)
+        button("Down", 200, 270, 100, 100, red)
+
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
