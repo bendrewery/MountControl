@@ -62,7 +62,6 @@ init_pygame()
 
 # All pins are low level for reset and stop operation
 def reset():
-    init()
     button("Up", 200, 50, 100, 100, red)
     button("Left", 90, 160, 100, 100, red)
     button("Right", 310, 160, 100, 100, red)
@@ -128,7 +127,7 @@ def button(msg, x, y, w, h, c):
     textSurf, textRect = text_objects(msg, smallText)
     textRect.center = ((x + (w / 2)), (y + (h / 2)))
     screen.blit(textSurf, textRect)
-
+init()
 reset()
 pygame.display.update()
 x = True
