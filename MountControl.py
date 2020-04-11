@@ -18,6 +18,7 @@ IN4 = 11
 ENB = 15
 
 # Defaults
+screen = False;
 #pwm_frequency = 1000
 #alt_duty_cycle = 100 # 0-100%
 #az_duty_cycle = 100 # 0-100%
@@ -29,6 +30,7 @@ red = [200, 0, 0]
 bright_red = [255, 0, 0]
 
 def init():
+    global screen
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(IN1, GPIO.OUT) # Alt UP
     GPIO.setup(IN2, GPIO.OUT) # Alt DOWN
@@ -49,7 +51,6 @@ def init():
     #az_pwm = GPIO.PWM(ENB, pwm_frequency)
     #alt_pwm.start(alt_duty_cycle)
     #az_pwm.start(az_duty_cycle)
-    return screen
  
 # All pins are low level for reset and stop operation
 def reset():
