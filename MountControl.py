@@ -13,8 +13,8 @@ import pygame
 IN1 = 18
 IN2 = 16
 ENA = 22
-IN3 = 13
-IN4 = 11
+IN3 = 11
+IN4 = 13
 ENB = 15
 
 # Defaults
