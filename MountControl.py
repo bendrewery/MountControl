@@ -54,6 +54,7 @@ def init():
  
 # All pins are low level for reset and stop operation
 def reset():
+    GPIO.setmode(GPIO.BOARD)
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN3, GPIO.LOW)
@@ -138,6 +139,7 @@ try:
                     print("except")
                     reset()
                     GPIO.cleanup()
+                    x = False
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('alt UP')
                     alt_up()
