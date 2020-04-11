@@ -45,7 +45,7 @@ def init():
     GPIO.output(ENA, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
 
-def init_pygame();  
+def init_pygame():  
     pygame.init()
     screen = pygame.display.set_mode((640, 480))
     pygame.display.set_caption('Mount Controller')
