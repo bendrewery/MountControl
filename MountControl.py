@@ -41,6 +41,10 @@ def init():
     screen = pygame.display.set_mode((640, 480))
     pygame.display.set_caption('Mount Controller')
     screen.fill(black)
+    button("Up", 200, 50, 100, 100, red)
+    button("Left", 90, 160, 100, 100, red)
+    button("Right", 310, 160, 100, 100, red)
+    button("Down", 200, 270, 100, 100, red)
     # to spam the pygame.KEYDOWN event every 100ms while key being pressed
     # pygame.key.set_repeat(100, 100)
   
@@ -124,11 +128,6 @@ reset()
 x = True
 try:
     while x:
-        button("Up", 200, 50, 100, 100, red)
-        button("Left", 90, 160, 100, 100, red)
-        button("Right", 310, 160, 100, 100, red)
-        button("Down", 200, 270, 100, 100, red)
-
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
@@ -152,6 +151,8 @@ try:
                     print('stop az LEFT')
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('stop az RIGHT')
+      # update display
+      pygame.display.update()
 except KeyboardInterrupt:
     print("except")
 finally:
