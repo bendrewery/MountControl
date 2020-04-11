@@ -140,7 +140,7 @@ try:
                     GPIO.cleanup()
                 if event.key == pygame.K_w or event.key == pygame.K_UP:
                     print('alt UP')
-                    #alt_up()
+                    alt_up()
                 if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                     print('alt DOWN')
                     alt_down()
