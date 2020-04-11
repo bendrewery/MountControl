@@ -58,10 +58,10 @@ def init_pygame():
     #az_pwm = GPIO.PWM(ENB, pwm_frequency)
     #alt_pwm.start(alt_duty_cycle)
     #az_pwm.start(az_duty_cycle)
- 
+init_pygame()
+
 # All pins are low level for reset and stop operation
 def reset():
-    GPIO.cleanup()
     init()
     button("Up", 200, 50, 100, 100, red)
     button("Left", 90, 160, 100, 100, red)
@@ -130,7 +130,6 @@ def button(msg, x, y, w, h, c):
     screen.blit(textSurf, textRect)
 
 reset()
-init_pygame()
 pygame.display.update()
 x = True
 try:
@@ -177,3 +176,4 @@ finally:
     GPIO.cleanup()
     exit()
 
+GPIO.cleanup()
