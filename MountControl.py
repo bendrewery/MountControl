@@ -162,8 +162,9 @@ try:
                 if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     print('stop az RIGHT')
                     stop_az_right()
-    # update display
-    pygame.display.update()
+
+            # update display
+            pygame.display.update()
 except KeyboardInterrupt:
     print("except")
 finally:
