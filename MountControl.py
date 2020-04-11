@@ -52,6 +52,7 @@ def init():
     #az_pwm = GPIO.PWM(ENB, pwm_frequency)
     #alt_pwm.start(alt_duty_cycle)
     #az_pwm.start(az_duty_cycle)
+    return screen
  
 # All pins are low level for reset and stop operation
 def reset():
@@ -66,45 +67,45 @@ def alt_up():
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(ENA, GPIO.HIGH)
-    button("Up", 200, 50, 100, 100, bright_red)
+    button(screen, "Up", 200, 50, 100, 100, bright_red)
 
 def alt_down():
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
     GPIO.output(ENA, GPIO.HIGH)
-    button("Down", 200, 270, 100, 100, bright_red)
+    button(screen, "Down", 200, 270, 100, 100, bright_red)
    
 def az_left(): 
     GPIO.output(IN4, GPIO.LOW)
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(ENB, GPIO.HIGH)
-    button("Left", 90, 160, 100, 100, bright_red)
+    button(screen, "Left", 90, 160, 100, 100, bright_red)
 
 def az_right():
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
     GPIO.output(ENB, GPIO.HIGH)
-    button("Right", 310, 160, 100, 100, bright_red)
+    button(screen, "Right", 310, 160, 100, 100, bright_red)
   
 def stop_alt_up():
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(ENA, GPIO.LOW)
-    button("Up", 200, 50, 100, 100, red)
+    button(screen, "Up", 200, 50, 100, 100, red)
 
 def stop_alt_dowm():
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(ENA, GPIO.LOW)
-    button("Down", 200, 270, 100, 100, red)
+    button(screen, "Down", 200, 270, 100, 100, red)
 
 def stop_az_left():
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
-    button("Left", 90, 160, 100, 100, red)
+    button(screen, "Left", 90, 160, 100, 100, red)
 
 def stop_az_right():
     GPIO.output(IN4, GPIO.LOW)
     GPIO.output(ENB, GPIO.LOW)
-    button("Right", 310, 160, 100, 100, red)
+    button(screen, "Right", 310, 160, 100, 100, red)
 
 # text object
 def text_objects(text, font):
@@ -113,7 +114,7 @@ def text_objects(text, font):
 
 
 # button
-def button(msg, x, y, w, h, c):
+def button(screen, msg, x, y, w, h, c):
     global e
     # mouse = pygame.mouse.get_pos()
     pygame.draw.rect(screen, c, (x, y, w, h))
